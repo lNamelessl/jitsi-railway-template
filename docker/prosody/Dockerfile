@@ -7,4 +7,4 @@ FROM ghcr.io/jitsi/prosody:stable-11248
 # check passes and account data persists on the volume.
 USER root
 RUN mkdir -p /etc/fix-attrs.d \
- && printf '/var/lib/prosody true s6 s6 0755\n' > /etc/fix-attrs.d/01-prosody-data
+ && printf '/var/lib/prosody false s6 s6 0755\n' > /etc/fix-attrs.d/01-prosody-data
