@@ -1,11 +1,10 @@
 FROM ghcr.io/jitsi/prosody:stable-11248
 
-# Railway mounts volumes root-owned; prosody's boot check requires /var/lib/prosody
-# writable by the container user (s6, uid 1000). s6-overlay's fix-attrs oneshot runs
-# as root at boot and chowns the volume root, using the legacy /etc/fix-attrs.d path
-# (do NOT put plain files under /etc/s6-overlay/s6-rc.d/fix-attrs.d - that directory
-# is an s6-rc service directory and a stray file aborts the whole service compile).
+# Railway mounts volumes root-owned. The upstream image ends with `USER s6`, so
+# s6-overlay drops privileges before fix-attrs and its chown fails (EPERM) on the
+# root-owned volume. Run the container as root (Railway norm) and let fix-attrs
+# chown the volume root to s6 (uid 1000) at every boot so prosody's writable
+# check passes and account data persists on the volume.
 USER root
 RUN mkdir -p /etc/fix-attrs.d \
- && printf '/var/lib/prosody false s6 s6 0777\n' > /etc/fix-attrs.d/01-prosody-data
-USER s6
+ && printf '/var/lib/prosody true s6 s6 0755\n' > /etc/fix-attrs.d/01-prosody-data
