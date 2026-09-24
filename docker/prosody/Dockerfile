@@ -13,5 +13,5 @@ USER root
 RUN mkdir -p /etc/fix-attrs.d \
  && printf '/var/lib/prosody false s6 s6 0755\n' > /etc/fix-attrs.d/01-prosody-data \
  && sed -i 's|^exec prosody|exec s6-setuidgid s6 prosody|' /etc/s6-overlay/scripts/prosody \
- && sed -i 's#| prosodyctl #| s6-setuidgid s6 prosodyctl #g' /etc/s6-overlay/scripts/config \
+ && sed -i 's#| prosodyctl #| /command/s6-setuidgid s6 prosodyctl #g' /etc/s6-overlay/scripts/config \
  && sed -i '$a chown s6:s6 /run/prosody 2>/dev/null || true && chown -R s6:s6 /run/prosody/config "$PROSODY_DATA_DIR" 2>/dev/null || true' /etc/s6-overlay/scripts/config
