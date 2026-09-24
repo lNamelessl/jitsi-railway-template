@@ -32,6 +32,6 @@ Jitsi's docker setup assumes UDP on port 10000, which Railway cannot route — s
 - **Railway TCP proxy** — created for coturn (application port 3478); Railway assigns the public domain/port automatically and the stack references them via expressions, so fresh deploys always get the correct TURN address.
 - **Generated secrets** — `JICOFO_AUTH_PASSWORD`, `JVB_AUTH_PASSWORD`, `TURN_SHARED_SECRET` are created per deployment by Railway `${{secret(...)}}` expressions; prosody, jicofo, jvb, and coturn receive matching values via variable references.
 - **One post-deploy step** — create your first moderator account in the prosody shell:
-  `prosodyctl --config /run/prosody/config/prosody.cfg.lua shell user create admin@meet.jitsi 'YourStrongPassword'`
+  `prosodyctl --config /run/prosody/config/prosody.cfg.lua shell user create admin@auth.meet.jitsi 'YourStrongPassword'`
 - **RAM** — jvb is capped at 2 GB with `VIDEOBRIDGE_MAX_MEMORY=1792m`; do not lower the jvb service below 2 GB.
 - **No DNS setup** — the web service gets a Railway domain automatically; bring a custom domain later if you want.

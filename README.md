@@ -27,7 +27,7 @@ Total: ~3.8 GB RAM. Media path: browser → **TURN over TCP** (`*.proxy.rlwy.net
 Open the **prosody** service in the Railway dashboard → Deployments → **Shell** (or use `railway ssh -s prosody` locally) and run:
 
 ```bash
-prosodyctl --config /run/prosody/config/prosody.cfg.lua shell user create admin@meet.jitsi 'YourStrongPassword'
+prosodyctl --config /run/prosody/config/prosody.cfg.lua shell user create admin@auth.meet.jitsi 'YourStrongPassword'
 ```
 
 Log in with `admin` / that password when creating a room; guests join without an account.
