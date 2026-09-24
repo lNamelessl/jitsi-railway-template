@@ -1,4 +1,4 @@
-FROM coturn/coturn:4.18.0-r0-alpine
+FROM ghcr.io/coturn/coturn:4.18.0-r0-alpine
 
 # The turnserver config must be rendered from real environment variables
 # (TURN_SHARED_SECRET / REALM). Railway start commands receive no shell
