@@ -4,7 +4,7 @@ One-click self-hosted [Jitsi Meet](https://jitsi.org) on Railway: web, prosody (
 
 All internal passwords and the TURN secret are generated automatically per deployment. Nothing to type at deploy time.
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.app/new?github_url=https://github.com/lNamelessl/jitsi-railway-template)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/jitsi-template)
 
 After deploying, create your moderator account (one shell command — see below), open your Railway domain, create a room, and share the link: registered users moderate, guests join freely.
 

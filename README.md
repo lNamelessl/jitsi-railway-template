@@ -2,7 +2,7 @@
 
 Self-host [Jitsi Meet](https://jitsi.org) — your own video conferencing server — as a 5-service Railway stack. Designed so **3+ participant meetings work on Railway's TCP-only public network** via a bundled coturn TURN server (TURN over TCP with XEP-0215 ephemeral credentials). 1:1 calls go peer-to-peer through the same TURN relay.
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.app/new?github_url=https://github.com/lNamelessl/jitsi-railway-template)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/jitsi-template)
 
 > Replace the button URL with the published template URL after publishing.
 
